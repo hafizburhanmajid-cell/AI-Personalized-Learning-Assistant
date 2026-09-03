@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson Generator - EduLearn AI</title>
+  <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body class="flex h-screen overflow-hidden bg-slate-50">
+
+  <!-- Sidebar Navigation -->
+  <aside id="sidebar" class="fixed inset-y-0 left-0 z-30 w-64 transition-transform duration-300 transform -translate-x-full bg-white border-r md:static md:translate-x-0 border-slate-200">
+    <div class="flex flex-col h-full">
+      <div class="flex items-center h-16 px-6 border-b border-slate-200">
+        <span class="text-xl font-bold text-slate-800">EduLearn AI</span>
+      </div>
+      <nav class="flex-1 px-4 py-4 space-y-1">
+        <a href="dashboard.html" class="flex items-center px-4 py-3 font-medium transition rounded-lg text-slate-600 hover:bg-slate-100">Dashboard</a>
+        <a href="ai-teacher.html" class="flex items-center px-4 py-3 font-medium transition rounded-lg text-slate-600 hover:bg-slate-100">AI Teacher Chat</a>
+        <a href="lesson.html" class="flex items-center px-4 py-3 font-medium text-white rounded-lg bg-brand-600">Lesson Generator</a>
+        <a href="quiz.html" class="flex items-center px-4 py-3 font-medium transition rounded-lg text-slate-600 hover:bg-slate-100">AI Quizzes</a>
+        <a href="progress.html" class="flex items-center px-4 py-3 font-medium transition rounded-lg text-slate-600 hover:bg-slate-100">Progress Tracker</a>
+        <a href="profile.html" class="flex items-center px-4 py-3 font-medium transition rounded-lg text-slate-600 hover:bg-slate-100">Profile & Preferences</a>
+      </nav>
+    </div>
+  </aside>
+
+  <!-- Main Container -->
+  <div class="flex flex-col flex-1 overflow-y-auto">
+    <header class="flex items-center justify-between h-16 px-6 bg-white border-b border-slate-200">
+      <button id="mobile-menu-btn" class="p-2 border rounded-md md:hidden text-slate-600 border-slate-300">Menu</button>
+      <h2 class="text-lg font-bold text-slate-800">AI Lesson Generator</h2>
+    </header>
+
+    <main class="p-6 max-w-4xl mx-auto w-full space-y-6">
+      <!-- Input Form -->
+      <div class="p-6 bg-white border rounded-xl border-slate-200 shadow-sm">
+        <h3 class="text-md font-bold text-slate-800 mb-4">Generate Custom Lesson</h3>
+        <form id="lesson-form" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-semibold text-slate-600 mb-1">Subject</label>
+            <input type="text" id="subject-input" placeholder="e.g. Programming" class="w-full px-3 py-2 text-sm border rounded-lg border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-500" required>
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-600 mb-1">Topic</label>
+            <input type="text" id="topic-input" placeholder="e.g. Recursion & Base Cases" class="w-full px-3 py-2 text-sm border rounded-lg border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-500" required>
+          </div>
+          <div class="md:col-span-2">
+            <button type="submit" id="generate-btn" class="w-full py-2.5 text-sm font-medium text-white rounded-lg bg-brand-600 hover:bg-brand-700 transition">
+              Generate Lesson
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Generated Lesson Display -->
+      <div id="lesson-output" class="hidden p-6 bg-white border rounded-xl border-slate-200 shadow-sm space-y-4">
+        <div class="border-b border-slate-100 pb-3">
+          <span class="px-2.5 py-0.5 text-xs font-semibold rounded-full bg-brand-50 text-brand-700" id="lesson-subject-badge">Programming</span>
+          <h2 class="text-2xl font-bold text-slate-900 mt-2" id="lesson-title">Recursion & Base Cases</h2>
+        </div>
+        <div class="prose max-w-none text-slate-700 text-sm space-y-3" id="lesson-content">
+          <!-- Dynamic Content Injection -->
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="./js/app.js"></script>
+  <script src="./js/lesson.js"></script>
+</body>
+</html>

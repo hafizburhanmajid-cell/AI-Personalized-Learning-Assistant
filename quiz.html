@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Quiz - EduLearn AI</title>
+  <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body class="flex h-screen overflow-hidden bg-slate-50">
+
+  <!-- Sidebar -->
+  <aside id="sidebar" class="fixed inset-y-0 left-0 z-30 w-64 transition-transform duration-300 transform -translate-x-full bg-white border-r md:static md:translate-x-0 border-slate-200">
+    <div class="flex flex-col h-full">
+      <div class="flex items-center h-16 px-6 border-b border-slate-200">
+        <span class="text-xl font-bold text-slate-800">EduLearn AI</span>
+      </div>
+      <nav class="flex-1 px-4 py-4 space-y-1">
+        <a href="dashboard.html" class="flex items-center px-4 py-3 font-medium transition rounded-lg text-slate-600 hover:bg-slate-100">Dashboard</a>
+        <a href="ai-teacher.html" class="flex items-center px-4 py-3 font-medium transition rounded-lg text-slate-600 hover:bg-slate-100">AI Teacher Chat</a>
+        <a href="lesson.html" class="flex items-center px-4 py-3 font-medium transition rounded-lg text-slate-600 hover:bg-slate-100">Lesson Generator</a>
+        <a href="quiz.html" class="flex items-center px-4 py-3 font-medium text-white rounded-lg bg-brand-600">AI Quizzes</a>
+        <a href="progress.html" class="flex items-center px-4 py-3 font-medium transition rounded-lg text-slate-600 hover:bg-slate-100">Progress Tracker</a>
+        <a href="profile.html" class="flex items-center px-4 py-3 font-medium transition rounded-lg text-slate-600 hover:bg-slate-100">Profile & Preferences</a>
+      </nav>
+    </div>
+  </aside>
+
+  <!-- Main Container -->
+  <div class="flex flex-col flex-1 overflow-y-auto">
+    <header class="flex items-center justify-between h-16 px-6 bg-white border-b border-slate-200">
+      <button id="mobile-menu-btn" class="p-2 border rounded-md md:hidden text-slate-600 border-slate-300">Menu</button>
+      <h2 class="text-lg font-bold text-slate-800">Interactive AI Quiz</h2>
+    </header>
+
+    <main class="p-6 max-w-2xl mx-auto w-full">
+      <div class="p-6 bg-white border rounded-xl border-slate-200 shadow-sm space-y-6" id="quiz-card">
+        <div class="flex justify-between items-center border-b border-slate-100 pb-3">
+          <span class="text-xs font-semibold uppercase text-slate-500">Question 1 of 2</span>
+          <span class="text-xs font-medium text-brand-600 bg-brand-50 px-2.5 py-1 rounded-md">Programming</span>
+        </div>
+
+        <h3 class="text-base font-bold text-slate-800" id="quiz-question">What is the primary function of a base case in recursion?</h3>
+
+        <div class="space-y-3" id="quiz-options">
+          <button class="w-full p-3 text-left border rounded-lg border-slate-200 hover:border-brand-500 hover:bg-brand-50 transition text-sm text-slate-700 option-btn" data-correct="true">
+            To stop the recursion and prevent infinite loops
+          </button>
+          <button class="w-full p-3 text-left border rounded-lg border-slate-200 hover:border-brand-500 hover:bg-brand-50 transition text-sm text-slate-700 option-btn" data-correct="false">
+            To make the function execute faster
+          </button>
+          <button class="w-full p-3 text-left border rounded-lg border-slate-200 hover:border-brand-500 hover:bg-brand-50 transition text-sm text-slate-700 option-btn" data-correct="false">
+            To convert variables into dynamic arrays
+          </button>
+        </div>
+
+        <div id="quiz-feedback" class="hidden p-3 rounded-lg text-sm"></div>
+      </div>
+    </main>
+  </div>
+
+  <script src="./js/app.js"></script>
+  <script src="./js/quiz.js"></script>
+</body>
+</html>
