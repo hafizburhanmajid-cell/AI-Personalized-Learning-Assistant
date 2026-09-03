@@ -4,20 +4,26 @@ document.addEventListener("DOMContentLoaded", () => {
   const chatWindow = document.getElementById("chat-window");
 
   if (chatForm) {
-    chatForm.addEventListener("submit", (e) => {
+    chatForm.addEventListener("submit", async (e) => {
       e.preventDefault();
       const query = userInput.value.trim();
       if (!query) return;
 
-      // 1. Render User Message
       appendMessage("user", query);
       userInput.value = "";
 
-      // 2. Render Mock AI Response (Backend integrate hone tak)
-      setTimeout(() => {
-        const mockResponse = `Here is a simple breakdown for "${query}": Think of it like nested Russian Matryoshka dolls. Each layer calls a smaller version of itself until you reach the smallest doll (the Base Case).`;
-        appendMessage("ai", mockResponse);
-      }, 800);
+      try {
+        const response = await fetch("http://localhost:5000/api/chat", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ message: query })
+        });
+
+        const data = await response.json();
+        appendMessage("ai", data.reply || "Something went wrong.");
+      } catch (err) {
+        appendMessage("ai", "Error connecting to backend server.");
+      }
     });
   }
 
